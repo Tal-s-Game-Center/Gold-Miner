@@ -22,6 +22,10 @@ public class RandomSpawner2D : MonoBehaviour
     [Tooltip("Minimum distance between spawned objects.")]
     public float minDistance = 1f;
 
+    [Header("Miner Object")]
+    [Tooltip("Reference to the miner object.")]
+    public GameObject minerObject;
+
     private List<Vector2> usedPositions = new List<Vector2>();
 
     private void Start()
@@ -34,6 +38,12 @@ public class RandomSpawner2D : MonoBehaviour
         if (prefabToSpawn == null)
         {
             Debug.LogError("Prefab to spawn is not assigned in the Inspector!");
+            return;
+        }
+
+        if (minerObject == null)
+        {
+            Debug.LogError("Miner object is not assigned in the Inspector!");
             return;
         }
 
@@ -78,14 +88,29 @@ public class RandomSpawner2D : MonoBehaviour
 
     private bool IsPositionValid(Vector2 newPosition)
     {
+        // Check for proximity to already used positions
         foreach (Vector2 usedPosition in usedPositions)
         {
-            // Check the distance between the new position and each used position
             if (Vector2.Distance(newPosition, usedPosition) < minDistance)
             {
                 return false; // Position is too close to an existing object
             }
         }
+
+        // Check if the position overlaps with the miner's bounding box
+        if (minerObject != null)
+        {
+            Renderer minerRenderer = minerObject.GetComponent<Renderer>();
+            if (minerRenderer != null)
+            {
+                Bounds minerBounds = minerRenderer.bounds;
+                if (minerBounds.Contains(new Vector3(newPosition.x, newPosition.y, minerObject.transform.position.z)))
+                {
+                    return false;
+                }
+            }
+        }
+
         return true; // Position is valid
     }
 }
