@@ -1,8 +1,18 @@
-
 # Gold Miner Game 🎮
 
 ## Overview
 Gold Miner is a nostalgic game where a miner sitting at the top of the screen sends a hook to collect gold nuggets scattered below. The hook extends, grabs the gold, and brings it upwards for the player to claim.
+
+---
+
+## Screenshots
+
+### Main Logo
+![Gold Miner Game Logo](https://github.com/user-attachments/assets/f4540743-1187-4c52-ac13-6bc2e22b24a2)")
+
+### Gameplay Screenshot
+![Gameplay](https://github.com/user-attachments/assets/97fa89b6-a44c-4765-960d-47b4a247123b)
+
 
 ---
 
