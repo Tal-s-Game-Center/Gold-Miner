@@ -54,17 +54,6 @@ Manages the hook's extension and retraction.
 
 ---
 
-## Troubleshooting
-
-### Common Issues
-1. **No Renderer on Miner Object**: Ensure the miner GameObject has a `Renderer` component.
-2. **WebGL Build Fails**: Resolve any script errors by reviewing the Unity console.
-
-### Logs
-- Debug logs in scripts (e.g., `HookTrigger.cs`) provide insights during gameplay and help identify issues.
-
----
-
 ## Future Enhancements
 - Add scoring and timer for competitive gameplay.
 - Introduce new levels with varying layouts.
@@ -78,4 +67,4 @@ This game is free to use and modify for personal projects. For commercial use, e
 ---
 
 ## Credits
-Developed with ❤️ using Unity by [Your Name].
+Developed with ❤️ using Unity by Tal Sahar.
